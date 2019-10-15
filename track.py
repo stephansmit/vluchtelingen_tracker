@@ -17,7 +17,7 @@ df['week']=df['week'].apply(lambda x: int(x))
 df['week2']=df['week']-1
 df['cumulatief']= df['aantal'].cumsum()
 
-
+print(df)
 fig, ax = plt.subplots(figsize=(20,10))
 ax2 = ax.twinx()
 df.plot(x='week',y='aantal',ax=ax, kind='bar', legend=None, color='b')
@@ -29,7 +29,7 @@ ax2.set_ylabel("Cumulatief aantal", fontsize=24, color='r', labelpad=10)
 ax.tick_params(labelsize=20, color='b',axis='y', labelcolor='b')
 ax2.tick_params(labelsize=20, color='b',axis='y', labelcolor='r')
 ax.tick_params(labelsize=20, color='k',axis='x', labelcolor='k')
-ax.set_xlim([-1,37])
+ax.set_xlim([-1,df['week'].max()])
 ax.set_title("Vluchtelingen 2019", fontsize=30, pad=20)
 fig.tight_layout()
 fig.savefig("vluchtelingen.png")
